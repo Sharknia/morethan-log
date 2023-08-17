@@ -12,7 +12,7 @@ const CONFIG = {
   },
   projects: [
     {
-      name: `sharkina blog`,
+      name: `github`,
       href: "https://github.com/sharknia",
     },
   ],
