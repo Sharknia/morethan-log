@@ -11,10 +11,10 @@ const CONFIG = {
     instagram: "",
   },
   projects: [
-    // {
-    //   name: `github`,
-    //   href: "https://github.com/sharknia",
-    // },
+    {
+      name: `github`,
+      href: "https://github.com/sharknia",
+    },
   ],
   // blog setting (required)
   blog: {
