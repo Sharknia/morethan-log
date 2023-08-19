@@ -6,8 +6,8 @@ const CONFIG = {
     role: "backend developer",
     bio: "만 4살 백엔드 개발자",
     email: "zel@kakao.com",
-    linkedin: "",
-    github: "Sharknia",
+    linkedin: "han-kyeol-lee-07a2b8287",
+    github: "",
     instagram: "",
   },
   projects: [
