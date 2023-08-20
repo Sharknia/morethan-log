@@ -10,8 +10,7 @@ const Tag: React.FC<Props> = ({ children }) => {
   const router = useRouter()
 
   const handleClick = (value: string) => {
-    const cleanedValue = value.replace(/\s\(\d+\)$/, "");
-    router.push(`/?tag=${cleanedValue}`);
+    router.push(`/?tag=${value}`)
   }
   return (
     <StyledWrapper onClick={() => handleClick(children)}>
