@@ -7,6 +7,7 @@ export function getAllSelectItemsFromPosts(
   const selectedPosts = posts.filter((post) => post?.[key])
   const items = [...selectedPosts.map((p) => p[key]).flat()]
   const itemObj: { [itemName: string]: number } = {}
+  
   items.forEach((item) => {
     if (!item) return
     if (item in itemObj) {
@@ -15,14 +16,18 @@ export function getAllSelectItemsFromPosts(
       itemObj[item] = 1
     }
   })
-  
-  // itemObj를 item name으로 정렬
-  const sortedItemObj = Object.entries(itemObj)
-    .sort((a, b) => a[0].localeCompare(b[0]))
-    .reduce((acc, [key, val]) => {
-      acc[key] = val
-      return acc
-    }, {} as { [itemName: string]: number })
+  //tags 일때에는 갯수를 이름 뒤에 붙이고 정렬을 갯수로 함
+  const sortedEntries: Array<[string, number]> = key === "tags"
+  ? Object.entries(itemObj)
+      .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+      .map(([key, val]) => [`${key} (${val})`, val])
+  : Object.entries(itemObj)
+      .sort((a, b) => a[0].localeCompare(b[0]));
+
+  const sortedItemObj = sortedEntries.reduce((acc, [key, val]) => {
+    acc[key as string] = val
+    return acc
+  }, {} as { [itemName: string]: number })
 
   return sortedItemObj
 }
