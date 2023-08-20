@@ -8,12 +8,12 @@ type Props = {}
 
 const TagList: React.FC<Props> = () => {
   const router = useRouter()
-  const currentTag = router.query.tag || undefined
+  const currentTag = router.query.tag.replace(/\s\(\d+\)$/, "") || undefined
   const data = useTagsQuery()
 
   const handleClickTag = (value: any) => {
     // delete
-    if (currentTag === value) {
+    if (currentTag === value.replace(/\s\(\d+\)$/, "")) {
       router.push({
         query: {
           ...router.query,
