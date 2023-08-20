@@ -17,7 +17,7 @@ const PostHeader: React.FC<Props> = ({ data }) => {
       {data.type[0] !== "Paper" && (
         <nav>
           <div className="top">
-            {data.author && data.author[0] && data.author[0].name && (
+            {/* {data.author && data.author[0] && data.author[0].name && (
               <>
                 <div className="author">
                   <Image
@@ -31,7 +31,7 @@ const PostHeader: React.FC<Props> = ({ data }) => {
                 </div>
                 <div className="hr"></div>
               </>
-            )}
+            )} */}
             <div className="date">
               {formatDate(
                 data?.date?.start_date || data.createdTime,
