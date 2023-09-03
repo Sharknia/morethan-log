@@ -56,10 +56,7 @@ const DetailPage: NextPageWithLayout = () => {
 
   if (!post) return <CustomError />
 
-  const image =
-    post.thumbnail ??
-    // CONFIG.ogImageGenerateURL ??
-    `${CONFIG.ogImageGenerateURL}/${encodeURIComponent(post.title)}.png`
+  const image = post.thumbnail || "https://sharknia.vercel.app/og-image.png";
 
   const date = post.date?.start_date || post.createdTime || ""
 
