@@ -63,7 +63,7 @@ const CONFIG = {
     },
   },
   isProd: process.env.VERCEL_ENV === "production", // distinguish between development and production environment (ref: https://vercel.com/docs/environment-variables#system-environment-variables)
-  revalidateTime: 3600, // revalidate time for [slug], index 1시간마다 포스팅 갱신
+  revalidateTime: 3600 * 24 * 365, // revalidate time for [slug], 사실상 갱신 없도록 수정
 }
 
 module.exports = { CONFIG }
